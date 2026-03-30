@@ -166,6 +166,52 @@
         }
         .case-arrow { font-size: 1.5rem; color: var(--divider); transition: all 0.3s; align-self: center; }
         .case-card:hover .case-arrow { color: var(--accent); transform: translateX(4px); }
+        .case-card.open .case-arrow { transform: rotate(90deg); color: var(--accent); }
+        .case-card { cursor: pointer; }
+
+        .case-detail {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1), padding 0.4s ease;
+            grid-column: 1 / -1;
+            padding: 0 0.5rem;
+        }
+        .case-card.open .case-detail {
+            max-height: 800px;
+            padding: 1rem 0.5rem 0.5rem;
+        }
+        .case-detail-inner {
+            border-top: 1px solid var(--divider);
+            padding-top: 1.5rem;
+        }
+        .case-detail-inner h4 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.05rem;
+            margin-bottom: 0.75rem;
+            color: var(--ink);
+        }
+        .case-detail-inner p {
+            font-size: 0.92rem;
+            line-height: 1.75;
+            color: #4a463f;
+            margin-bottom: 1rem;
+        }
+        .case-detail-inner .detail-section {
+            margin-bottom: 1.5rem;
+        }
+        .case-detail-inner .detail-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            margin-bottom: 0.4rem;
+        }
+        .case-detail-inner .detail-list {
+            font-size: 0.92rem;
+            line-height: 1.75;
+            color: #4a463f;
+        }
 
         .writing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
         .writing-card {
@@ -300,7 +346,7 @@
             <span class="section-subtitle">Selected case studies</span>
         </div>
         <div class="case-studies">
-            <div class="case-card reveal r2">
+            <div class="case-card reveal r2" onclick="this.classList.toggle('open')">
                 <div class="case-number">01</div>
                 <div class="case-content">
                     <h3>Building the Data Access Layer for AI Agents</h3>
@@ -312,8 +358,24 @@
                     </div>
                 </div>
                 <div class="case-arrow">&#8594;</div>
+                <div class="case-detail">
+                    <div class="case-detail-inner">
+                        <div class="detail-section">
+                            <div class="detail-label">The Situation</div>
+                            <p>The team was tasked with building MCP (Model Context Protocol) support &#8212; a data access layer that lets AI agents like Claude pull live data from our platform. The CPO saw it as a strategic defensive move, but the project landed on the team as a solution without a clearly defined problem. There were no acceptance criteria, no competitive benchmarks, and ambiguous scope.</p>
+                        </div>
+                        <div class="detail-section">
+                            <div class="detail-label">What I Did</div>
+                            <p>I synthesized the CPO's strategic vision into a concrete scope document, flagging the gaps between "build MCP" and "ship something users actually want." I defined acceptance criteria by working backward from how AI agents would realistically interact with our data. I coordinated verification testing across Facebook, Facebook Ads, Instagram, and LinkedIn integrations with two engineers, and framed MCP as both a data access layer and a competitive hedge &#8212; not just a feature checkbox.</p>
+                        </div>
+                        <div class="detail-section">
+                            <div class="detail-label">The Outcome</div>
+                            <p>Shipped a working MCP implementation across four major social integrations. More importantly, established a repeatable framework for scoping ambiguous strategic projects &#8212; one where the PM's job isn't to wait for clarity, but to create it.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="case-card reveal r3">
+            <div class="case-card reveal r3" onclick="this.classList.toggle('open')">
                 <div class="case-number">02</div>
                 <div class="case-content">
                     <h3>GEO Tracker: AI Search Visibility for Agencies</h3>
@@ -325,8 +387,24 @@
                     </div>
                 </div>
                 <div class="case-arrow">&#8594;</div>
+                <div class="case-detail">
+                    <div class="case-detail-inner">
+                        <div class="detail-section">
+                            <div class="detail-label">The Situation</div>
+                            <p>AI search engines (ChatGPT, Perplexity, Google AI Overviews, Gemini, Claude) are reshaping how people find brands online &#8212; but agencies had zero visibility into whether their clients were showing up in AI-generated answers. This was a greenfield product opportunity with no established playbook.</p>
+                        </div>
+                        <div class="detail-section">
+                            <div class="detail-label">What I Did</div>
+                            <p>Designed and led the user research program from scratch. Ran live interviews with agency customers, including one at active churn risk, to understand how they thought about AI search visibility. Used their language and mental models to shape the product framing &#8212; not just feature specs. Collaborated with the team to define what "tracking brand visibility in AI search" even means when there are no standard metrics yet.</p>
+                        </div>
+                        <div class="detail-section">
+                            <div class="detail-label">The Outcome</div>
+                            <p>Research directly shaped the GEO Tracker roadmap and positioning. The churn-risk customer stayed. The interviews surfaced that agencies didn't just want data &#8212; they wanted a story they could tell their own clients about AI readiness, which reframed the entire product narrative.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="case-card reveal r4">
+            <div class="case-card reveal r4" onclick="this.classList.toggle('open')">
                 <div class="case-number">03</div>
                 <div class="case-content">
                     <h3>Advanced Filtering: Cross-Platform Analytics</h3>
@@ -338,6 +416,22 @@
                     </div>
                 </div>
                 <div class="case-arrow">&#8594;</div>
+                <div class="case-detail">
+                    <div class="case-detail-inner">
+                        <div class="detail-section">
+                            <div class="detail-label">The Situation</div>
+                            <p>Agency users were drowning in analytics data from multiple Google platforms but lacked the ability to slice it meaningfully. The existing filtering was basic and didn't work consistently across GA4, Google Search Console, and Google Ads &#8212; three platforms with very different data models and API structures.</p>
+                        </div>
+                        <div class="detail-section">
+                            <div class="detail-label">What I Did</div>
+                            <p>Scoped and led a cross-functional effort across engineering, design, and marketing. The core PM challenge wasn't the UI &#8212; it was abstracting three different API filtering models into one intuitive interface that non-technical agency users could actually use. Coordinated the full launch sequence including documentation, in-app messaging, and customer communication.</p>
+                        </div>
+                        <div class="detail-section">
+                            <div class="detail-label">The Outcome</div>
+                            <p>Shipped a unified advanced filtering experience across all three Google integrations. Reduced the number of support tickets related to "can't find my data" and gave agencies the granular reporting they needed to retain their own clients. The unglamorous infrastructure work that quietly moves retention numbers.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -378,7 +472,7 @@
         <h2>Let's <em>connect.</em></h2>
         <p>Open to interesting conversations about product, AI, and building things that matter.</p>
         <div class="contact-links">
-            <a href="mailto:jspatel@ualberta.ca" class="btn btn-primary">Email me</a>
+            <a href="/cdn-cgi/l/email-protection#0e647d7e6f7a6b624e7b6f626c6b7c7a6f206d6f" class="btn btn-primary">Email me</a>
             <a href="https://www.linkedin.com/in/patel-jay30/" class="btn btn-ghost" target="_blank">LinkedIn &#8594;</a>
         </div>
     </div>
@@ -388,16 +482,7 @@
     <p>&#169; 2026 Jay. Built with curiosity and unreasonable deadlines.</p>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     var nav = document.getElementById('nav');
     window.addEventListener('scroll', function() {
         if (window.scrollY > 50) {
-            nav.classList.add('scrolled');
-        } else {
-            nav.classList.remove('scrolled');
-        }
-    });
-</script>
-
-</body>
-</html>
