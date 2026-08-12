@@ -1,184 +1,245 @@
 const app = document.getElementById("app");
 
-const flagshipWins = [
+const receipts = [
   {
-    number: "24%",
+    id: "01",
     label: "AI Tracker",
-    title: "Took AI Tracker from signal to monetized launch",
+    title: "Took an emerging AI search category from vague demand to paid product.",
     body:
-      "Led the product from early opportunity through pricing, beta, and launch, beating the beta adoption target by 24%.",
+      "Defined a workflow agencies could actually understand: prompts, tracked platforms, locations, and visibility over time. That made the product easier to buy, explain, and use.",
+    outcome: "Beat beta adoption target by 24%",
   },
   {
-    number: "80+",
+    id: "02",
+    label: "Advanced Analytics",
+    title: "Made deeper analysis usable for enterprise agencies with more complex reporting needs.",
+    body:
+      "Positioned advanced analytics around segmentation, reporting flexibility, and cross-channel analysis instead of shipping another isolated feature set.",
+    outcome: "AI reporting assistant reached 27% adoption",
+  },
+  {
+    id: "03",
     label: "Integrations",
-    title: "Expanded the platform footprint under my watch",
+    title: "Expanded the platform surface from roughly 40 to 80+ integrations.",
     body:
-      "Owned the integration ecosystem as it grew from roughly 40 to 80+ platforms, balancing customer value, API constraints, and reporting quality.",
-  },
-  {
-    number: "27%",
-    label: "Adoption",
-    title: "Made advanced analytics more valuable for enterprise agencies",
-    body:
-      "Positioned Advanced Analytics around the complex reporting demands of enterprise agencies, then partnered with design and engineering to launch an AI reporting assistant that reduced manual report creation and reached 27% adoption.",
+      "Owned prioritization across ads, analytics, ecommerce, CRM, and warehouse layers while balancing customer demand, API constraints, and reporting quality.",
+    outcome: "Broader product value across the full agency stack",
   },
 ];
 
-const proofStats = [
-  { value: "100+", label: "customer conversations run" },
-  { value: "27%", label: "AI reporting assistant adoption" },
-  { value: "2022 → now", label: "integration expansion era" },
-];
-
-const integrations = [
-  "Google Ads",
-  "Google Analytics",
-  "Google Search Console",
-  "Google Business Profile",
-  "Google Sheets",
-  "HubSpot",
-  "Meta Ads",
-  "Facebook",
-  "Instagram",
-  "Instagram Ads",
-  "LinkedIn",
-  "LinkedIn Ads",
-  "Microsoft Ads",
-  "TikTok",
-  "TikTok Ads",
-  "Reddit Ads",
-  "X Ads",
-  "Pinterest",
-  "Pinterest Ads",
-  "Snapchat Ads",
-  "Spotify Ads",
-  "YouTube",
-  "Shopify",
-  "WooCommerce",
-  "Stripe",
-  "BigCommerce",
-  "Semrush",
-  "Ahrefs",
-  "Moz",
-  "SE Ranking",
-  "CallRail",
-  "WhatConverts",
-  "Trustpilot",
-  "Klaviyo",
-  "Mailchimp",
-  "ActiveCampaign",
-  "Salesforce",
-  "Snowflake",
-  "MySQL",
-  "PostgreSQL",
-  "Google BigQuery",
-  "Amazon Redshift",
-];
-
-const themes = [
+const caseStudies = [
   {
-    title: "Product clarity",
-    text: "I tend to be most useful when there is too much demand, too much noise, and not enough signal. The work is to reduce ambiguity until the right bet is clear.",
+    name: "AI Tracker",
+    eyebrow: "AgencyAnalytics",
+    title: "Turn AI search visibility into a product agencies could trust, buy, and explain to clients.",
+    summary:
+      "This work mattered because the category itself was still unstable. The product decision was not just what to build, but how narrow to keep the promise so the first release felt credible instead of speculative.",
+    linkLabel: "See product context",
+    linkHref: "https://agencyanalytics.com/p/ahead-of-next",
+    sections: [
+      {
+        label: "Problem",
+        text:
+          "Agencies were getting questions about how brands showed up inside ChatGPT, Gemini, Perplexity, and other AI answers, but they had no repeatable reporting system for it. The real product problem was deciding what an agency should be able to measure before the market language had fully settled.",
+      },
+      {
+        label: "Evidence",
+        text:
+          "Customer conversations pointed to the same core need: teams wanted a credible way to show whether their clients appeared in AI answers and how that changed over time. What they needed was not more AI hype. They needed a product they could defend in front of clients.",
+      },
+      {
+        label: "Options Considered",
+        text:
+          "One option was to frame it like a traditional rank tracker and borrow familiar SEO language. Another was to push toward a much broader AI intelligence story. The better near-term option was a narrower workflow that focused on prompts, platforms, locations, and visibility movement over time.",
+      },
+      {
+        label: "Trade-Offs",
+        text:
+          "The narrower scope meant a smaller first release and fewer headline claims, but it also reduced false precision and gave the product a cleaner mental model. That trade-off favored trust and clarity over breadth.",
+      },
+      {
+        label: "Decision",
+        text:
+          "The product was shaped around a simple system: define prompts, choose tracked AI platforms, layer in geographic context, and surface visibility trends clearly enough that agencies could operationalize the output instead of debating what the interface meant.",
+      },
+      {
+        label: "How I’d Measure It",
+        text:
+          "I would look at beta-to-paid conversion, number of prompts configured per account, repeat usage after setup, and whether customers could explain the product’s value to their own clients without relying heavily on account management support.",
+      },
+    ],
   },
   {
-    title: "Platform judgment",
-    text: "A lot of my strongest product work sits below the surface: data layers, integration systems, reporting architecture, and the product decisions that make them coherent.",
-  },
-  {
-    title: "Trust-first execution",
-    text: "In analytics and AI, speed matters, but trust matters more. Customers need to believe the outputs, understand the trade-offs, and rely on the system.",
-  },
-];
-
-const aiTrackerPlatforms = ["ChatGPT", "Gemini", "Perplexity", "Claude"];
-const featuredIntegrations = [
-  "Google Ads",
-  "GA4",
-  "Search Console",
-  "Meta Ads",
-  "LinkedIn Ads",
-  "TikTok Ads",
-  "HubSpot",
-  "Shopify",
-  "Stripe",
-  "BigQuery",
-  "Salesforce",
-  "Klaviyo",
-];
-
-const apiTrackerLifecycle = [
-  {
-    stage: "1. Problem",
-    title: "Started with a familiar operational pain point",
-    body:
-      "Marketing and analytics teams depend on APIs that change constantly, but changelogs, docs, and release notes are scattered. The risk is usually discovered late, after dashboards, automations, or client reporting have already drifted.",
-  },
-  {
-    stage: "2. Scope",
-    title: "Focused the first version on the highest-change provider set",
-    body:
-      "The product starts where the operational risk is clearest: GA4, Google Ads, and Meta. That keeps the surface opinionated while still covering the systems most likely to break reporting and campaign workflows.",
-  },
-  {
-    stage: "3. Workflow",
-    title: "Turned monitoring into a review workflow instead of another feed",
-    body:
-      "The core product shape is detect, classify, summarize, and route. High-risk changes move into a shared Kanban board so growth, analytics, and engineering can see ownership rather than just alerts.",
-  },
-  {
-    stage: "4. Build",
-    title: "Designed for trust, demos, and real operating constraints",
-    body:
-      "The app includes seeded providers, sample change events, and a public demo workspace so people can understand the workflow immediately. Under the hood, it supports subscriptions, diffs, cron-based fetching, and digest notifications.",
-  },
-  {
-    stage: "5. Operate",
-    title: "Shaped it like a product that could keep improving after launch",
-    body:
-      "The value is not one dashboard. It is an operating layer for API change intelligence: monitoring cadence, severity labeling, suggested actions, and enough structure to help teams act before production problems show up.",
+    name: "APIRadar",
+    eyebrow: "Personal Project",
+    title: "Build a change-intelligence product that helps teams act before provider-side changes become production problems.",
+    summary:
+      "APIRadar reflects the kind of product work I like most: start with a messy operational pain point, reduce it to the decision layer, and build a workflow that makes ownership obvious instead of generating more passive alerts.",
+    linkLabel: "Open project",
+    linkHref: "https://api-tracker-nine.vercel.app/signup",
+    sections: [
+      {
+        label: "Problem",
+        text:
+          "Teams that depend on APIs usually find important changes too late. Changelogs, release notes, documentation, and deprecation notices are fragmented across providers, and alert fatigue means nobody wants another feed that still leaves action ownership unresolved.",
+      },
+      {
+        label: "Evidence",
+        text:
+          "The product logic came from repeated patterns in integration-heavy environments: manual monitoring, duplicate triage work, and late discovery of breaking or behavior-changing updates. The initial provider set in APIRadar focused on high-risk systems where operational impact is immediate: GA4, Google Ads, and Meta.",
+      },
+      {
+        label: "Options Considered",
+        text:
+          "A lightweight monitoring tool would have been easy to ship, but it would still leave teams to convert raw alerts into decisions. A much larger autonomous remediation platform would have been ambitious, but hard to trust early. The right starting point was monitoring plus structured triage.",
+      },
+      {
+        label: "Trade-Offs",
+        text:
+          "I chose not to automate the final response step in the first version. That kept the product useful without pretending it could safely fix every issue. The trade-off was slower end-to-end automation in exchange for much better trust at the decision layer.",
+      },
+      {
+        label: "Decision",
+        text:
+          "I built APIRadar as a shared control center with provider subscriptions, severity labels, AI summaries, suggested next steps, and a Kanban review board. I also included a demo mode so the value of the workflow was visible before setup friction took over.",
+      },
+      {
+        label: "How I’d Measure It",
+        text:
+          "I would track number of subscribed providers per workspace, percentage of changes triaged within a target window, time from detection to ownership, and whether teams report fewer production surprises caused by upstream provider changes.",
+      },
+    ],
   },
 ];
 
-const apiTrackerHighlights = [
-  "Tracks changelogs and release surfaces across GA4, Google Ads, and Meta",
-  "Classifies changes by severity, type, and suggested next action",
-  "Routes work into a shared Kanban-style review workflow",
-  "Supports a public demo mode so the product can be evaluated instantly",
+const integrationRows = [
+  [
+    "Google Ads",
+    "GA4",
+    "Search Console",
+    "Meta Ads",
+    "LinkedIn Ads",
+    "TikTok Ads",
+    "HubSpot",
+    "Shopify",
+    "Klaviyo",
+    "Salesforce",
+    "BigQuery",
+    "Snowflake",
+  ],
+  [
+    "Stripe",
+    "CallRail",
+    "Mailchimp",
+    "ActiveCampaign",
+    "Semrush",
+    "Ahrefs",
+    "Moz",
+    "Pinterest Ads",
+    "Microsoft Ads",
+    "Reddit Ads",
+    "YouTube",
+    "WooCommerce",
+  ],
 ];
 
-function renderWins(items) {
+const processSteps = [
+  {
+    title: "Find the real job",
+    text:
+      "I spend a lot of time narrowing the problem until the user, the decision, and the proof of value are all specific enough to build against.",
+  },
+  {
+    title: "Pressure-test options",
+    text:
+      "Before a roadmap bet hardens, I want the rejected options and trade-offs to be visible. Good product judgment usually shows up there first.",
+  },
+  {
+    title: "Shape systems, not features",
+    text:
+      "The work I gravitate toward is usually underneath the visible surface: reporting layers, data models, integrations, and the product logic that holds them together.",
+  },
+  {
+    title: "Measure what changed",
+    text:
+      "I care less about launch theater and more about whether the new workflow gets adopted, trusted, and used without extra explanation every time.",
+  },
+];
+
+function renderReceipts(items) {
   return items
     .map(
       (item, index) => `
-        <article class="win-card reveal" style="--delay:${index * 90}ms">
-          <p class="win-metric">${item.number}</p>
-          <p class="win-label">${item.label}</p>
-          <h3>${item.title}</h3>
-          <p class="win-body">${item.body}</p>
+        <article class="receipt-card reveal" style="--delay:${index * 80}ms">
+          <p class="receipt-id">${item.id}</p>
+          <div class="receipt-copy">
+            <p class="eyebrow">${item.label}</p>
+            <h3>${item.title}</h3>
+            <p>${item.body}</p>
+          </div>
+          <p class="receipt-outcome">${item.outcome}</p>
         </article>
       `,
     )
     .join("");
 }
 
-function renderStats(items) {
+function renderCaseStudies(items) {
   return items
     .map(
       (item, index) => `
-        <div class="stat-card reveal" style="--delay:${index * 70}ms">
-          <strong>${item.value}</strong>
-          <span>${item.label}</span>
-        </div>
+        <article class="case-study-card reveal" style="--delay:${index * 100}ms">
+          <div class="case-study-topline">
+            <div>
+              <p class="eyebrow">${item.eyebrow}</p>
+              <h3>${item.name}</h3>
+            </div>
+            <a class="inline-link" href="${item.linkHref}" target="_blank" rel="noreferrer">${item.linkLabel}</a>
+          </div>
+
+          <div class="case-study-summary">
+            <h4>${item.title}</h4>
+            <p>${item.summary}</p>
+          </div>
+
+          <div class="case-study-grid">
+            ${item.sections
+              .map(
+                (section) => `
+                  <section class="case-study-block">
+                    <p class="case-study-label">${section.label}</p>
+                    <p>${section.text}</p>
+                  </section>
+                `,
+              )
+              .join("")}
+          </div>
+        </article>
       `,
     )
     .join("");
 }
 
-function renderThemes(items) {
+function renderIntegrationRow(items, direction) {
+  const content = [...items, ...items]
+    .map((item) => `<span class="integration-pill">${item}</span>`)
+    .join("");
+
+  return `
+    <div class="integration-marquee ${direction}">
+      <div class="integration-track">
+        ${content}
+      </div>
+    </div>
+  `;
+}
+
+function renderProcess(items) {
   return items
     .map(
       (item, index) => `
-        <article class="theme-card reveal" style="--delay:${index * 90}ms">
+        <article class="process-card reveal" style="--delay:${index * 75}ms">
+          <p class="process-index">0${index + 1}</p>
           <h3>${item.title}</h3>
           <p>${item.text}</p>
         </article>
@@ -187,260 +248,167 @@ function renderThemes(items) {
     .join("");
 }
 
-function renderPlatformBadges(items) {
-  return items.map((item) => `<span class="platform-badge">${item}</span>`).join("");
-}
-
-function renderIntegrationTiles(items) {
-  return items
-    .map(
-      (item, index) => `
-        <div class="integration-tile reveal" style="--delay:${index * 45}ms">
-          <span>${item}</span>
-        </div>
-      `,
-    )
-    .join("");
-}
-
-function renderLifecycle(items) {
-  return items
-    .map(
-      (item, index) => `
-        <article class="lifecycle-card reveal" style="--delay:${index * 70}ms">
-          <p class="lifecycle-stage">${item.stage}</p>
-          <h3>${item.title}</h3>
-          <p>${item.body}</p>
-        </article>
-      `,
-    )
-    .join("");
-}
-
-function renderCaseStudyBullets(items) {
-  return items.map((item) => `<li>${item}</li>`).join("");
-}
-
 app.innerHTML = `
   <main class="page">
+    <div class="progress-rail" aria-hidden="true">
+      <span class="progress-bar"></span>
+    </div>
+
     <header class="site-header reveal">
       <a class="brand" href="#top">Jay Patel</a>
       <nav class="site-nav">
-        <a href="#wins">Wins</a>
-        <a href="#case-studies">Case Studies</a>
+        <a href="#work">Work</a>
+        <a href="#case-studies">Case studies</a>
         <a href="#systems">Systems</a>
-        <a href="#approach">Approach</a>
+        <a href="#process">Process</a>
       </nav>
     </header>
 
     <section class="hero" id="top">
       <div class="hero-copy reveal" style="--delay:40ms">
         <p class="eyebrow">Senior Product Manager</p>
-        <h1>I build the systems behind analytics, AI, and reporting products.</h1>
+        <p class="hero-intro">Hi, I’m Jay Patel.</p>
+        <h1>I build analytics and AI products that make complex systems <span class="scribble-word">easier to trust</span>.</h1>
         <p class="hero-text">
-          My strongest work has centered on three things: launching AI Tracker, shaping advanced analytics for more complex enterprise reporting,
-          and expanding the integration ecosystem at AgencyAnalytics into a much broader, more valuable platform.
+          My best work sits where product strategy meets data infrastructure: AI Tracker, advanced analytics for enterprise agency reporting,
+          and the integration systems that expanded AgencyAnalytics into a much broader platform.
         </p>
+        <div class="hand-note reveal" style="--delay:90ms">
+          <span class="hand-note-arrow" aria-hidden="true">↗</span>
+          <p>Strategy, systems thinking, and product judgment over surface polish.</p>
+        </div>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#case-studies">See the work</a>
+          <a class="button button-secondary" href="mailto:jaypatel131194@gmail.com">Email me</a>
+        </div>
+        <p class="hero-note"><span class="hand-drawn-line">Selected work and product judgment, not fluff, below.</span></p>
       </div>
-      <aside class="hero-aside reveal" style="--delay:140ms">
-        <p class="aside-kicker">Current position</p>
-        <p class="aside-line">Product strategy for data platforms, integration infrastructure, and AI products.</p>
-        <p class="aside-note">Built for fast understanding: what shipped, what scaled, and what changed the product surface.</p>
+
+      <aside class="signal-stage reveal" style="--delay:140ms">
+        <div class="signal-orbit"></div>
+        <div class="motion-scene" data-motion-scene>
+          <article class="motion-layer drift motion-layer-base" data-depth="10">
+            <p class="signal-label">Scroll-linked scene</p>
+            <strong>AI Tracker</strong>
+            <span>Prompt → platform → location → visibility</span>
+          </article>
+          <article class="motion-layer drift motion-layer-mid" data-depth="18">
+            <p class="signal-label">Platform surface</p>
+            <strong>80+ integrations</strong>
+            <span>Expanded the reporting system across the full agency stack</span>
+          </article>
+          <article class="motion-layer drift motion-layer-top" data-depth="14">
+            <p class="signal-label">Enterprise value</p>
+            <strong>Advanced Analytics</strong>
+            <span>27% adoption on AI reporting assistant</span>
+          </article>
+          <article class="motion-caption">
+            <p class="motion-caption-label">Inspired by oil-motion</p>
+            <p>The scene separates as you scroll so the three strongest bets become legible one at a time instead of competing at once.</p>
+          </article>
+        </div>
       </aside>
     </section>
 
-    <section class="stats-band">
-      ${renderStats(proofStats)}
-    </section>
-
-    <section class="wins-section" id="wins">
+    <section class="receipts-section" id="work">
       <div class="section-intro reveal">
-        <p class="eyebrow">Flagship Work</p>
-        <h2>The work I would want someone to understand in under a minute.</h2>
+        <p class="eyebrow">Selected Work</p>
+        <h2>The quickest way to understand my product work is through the bets that changed the product surface.</h2>
+        <p class="section-doodle">Three bets I’d want someone to remember after a fast skim.</p>
       </div>
-      <div class="wins-grid">
-        ${renderWins(flagshipWins)}
+      <div class="receipts-list">
+        ${renderReceipts(receipts)}
       </div>
     </section>
 
     <section class="case-studies-section" id="case-studies">
       <div class="section-intro reveal">
-        <p class="eyebrow">Case Study</p>
-        <h2>A personal product that shows how I think through the full lifecycle.</h2>
+        <p class="eyebrow">Case Studies</p>
+        <h2>Depth matters more than volume when the goal is showing product judgment.</h2>
         <p class="section-copy">
-          APIRadar is a personal project, but the product logic is familiar: find a recurring operational pain point,
-          define the right first scope, make the workflow legible, and build something teams can actually act on.
+          These are structured around the product decisions themselves: the problem, the evidence, the options considered, the trade-offs,
+          the build decision, and the metrics that would tell me whether the bet was actually working.
         </p>
       </div>
-
-      <div class="case-study-hero">
-        <article class="case-study-panel reveal" style="--delay:40ms">
-          <p class="eyebrow">APIRadar</p>
-          <h3>Change intelligence for marketing and analytics APIs.</h3>
-          <p class="case-study-copy">
-            Built as a SaaS-style control center for tracking API changes across GA4, Google Ads, and Meta before they break dashboards,
-            campaigns, automations, and reporting workflows.
-          </p>
-          <div class="case-study-actions">
-            <a href="https://api-tracker-nine.vercel.app" target="_blank" rel="noreferrer">View Live Product</a>
-            <a href="https://api-tracker-nine.vercel.app/signup" target="_blank" rel="noreferrer">Open Demo Workspace</a>
+      <div class="showcase-layout showcase-layout-inline">
+        <article class="showcase-frame reveal" style="--delay:40ms">
+          <div class="showcase-copy">
+            <p class="showcase-kicker">AI Tracker product view</p>
+            <h3>Keep the product story tied to the actual surface customers would use.</h3>
+          </div>
+          <div class="showcase-video-shell">
+            <iframe
+              class="showcase-video-frame"
+              src="https://fast.wistia.net/embed/iframe/jxiaxo8qat?seo=false&videoFoam=true"
+              title="AgencyAnalytics AI Tracker related demo"
+              allow="autoplay; fullscreen"
+              loading="lazy"
+            ></iframe>
           </div>
         </article>
 
-        <aside class="case-study-proof reveal" style="--delay:100ms">
-          <div class="case-proof-stat">
-            <strong>3</strong>
-            <span>core providers in the first focused release</span>
-          </div>
-          <div class="case-proof-stat">
-            <strong>4-step</strong>
-            <span>workflow: detect, classify, summarize, route</span>
-          </div>
-          <div class="case-proof-stat">
-            <strong>Demo-ready</strong>
-            <span>public sample workspace for fast product evaluation</span>
-          </div>
+        <aside class="showcase-notes reveal" style="--delay:110ms">
+          <article class="note-card">
+            <p class="eyebrow">Why it belongs here</p>
+            <h3>The AI Tracker story should stay next to the product surface.</h3>
+            <p>
+              The point is not just that I shaped the product strategy. It is that the strategy resolved into a workflow agencies could actually
+              understand in product: what to track, where visibility appears, and how that changes over time.
+            </p>
+          </article>
+          <article class="note-card alt">
+            <p class="eyebrow">What to notice</p>
+            <h3>Clarity matters more than novelty in an emerging category.</h3>
+            <p>
+              The strongest decision was keeping the workflow legible. Agencies needed a product they could explain confidently to clients, not
+              a vague AI feature cluster with unclear reporting value.
+            </p>
+          </article>
         </aside>
       </div>
-
-      <div class="case-study-layout">
-        <div class="case-study-details reveal" style="--delay:60ms">
-          <p class="list-kicker">What the product does</p>
-          <ul class="case-study-list">
-            ${renderCaseStudyBullets(apiTrackerHighlights)}
-          </ul>
-        </div>
-        <div class="case-study-timeline">
-          ${renderLifecycle(apiTrackerLifecycle)}
-        </div>
+      <div class="case-studies-stack">
+        ${renderCaseStudies(caseStudies)}
       </div>
     </section>
 
     <section class="systems-section" id="systems">
       <div class="section-intro reveal">
-        <p class="eyebrow">Platform Expansion</p>
-        <h2>The integration footprint should be obvious at a glance.</h2>
+        <p class="eyebrow">Systems Work</p>
+        <h2>The integration footprint should be visible, not buried in one line of resume copy.</h2>
         <p class="section-copy">
-          I owned the ecosystem as it expanded from roughly 40 to 80+ integrations. Instead of hiding that in copy, this section shows the product surface directly.
+          I owned the ecosystem as it grew from roughly 40 to 80+ integrations across ads, analytics, ecommerce, CRM, and warehouse layers.
+          The value was not just breadth. It was making the reporting platform more complete and more useful for agency teams doing real client work.
         </p>
       </div>
-      <div class="systems-showcase">
-        <div class="integrations-hero reveal" style="--delay:40ms">
-          <div class="integrations-count">
-            <strong>80+</strong>
-            <span>integrations across ads, analytics, ecommerce, CRM, email, and data warehousing</span>
-          </div>
-          <div class="integration-grid">
-            ${renderIntegrationTiles(featuredIntegrations)}
-          </div>
+
+      <div class="systems-panel reveal">
+        <div class="systems-stat drift" data-depth="10">
+          <span>Platform expansion</span>
+          <strong>80+</strong>
+          <p>integrations spanning acquisition, analytics, ecommerce, CRM, and data warehouse workflows</p>
         </div>
-        <div class="integration-list-card reveal" style="--delay:100ms">
-          <p class="list-kicker">Broader catalog</p>
-          <div class="list-columns">
-            <div>${integrations.slice(0, 14).map((item) => `<span>${item}</span>`).join("")}</div>
-            <div>${integrations.slice(14, 28).map((item) => `<span>${item}</span>`).join("")}</div>
-            <div>${integrations.slice(28, 42).map((item) => `<span>${item}</span>`).join("")}</div>
-          </div>
+        <div class="systems-marquees">
+          ${renderIntegrationRow(integrationRows[0], "forward")}
+          ${renderIntegrationRow(integrationRows[1], "reverse")}
         </div>
       </div>
     </section>
 
-    <section class="tracker-section">
+    <section class="process-section" id="process">
       <div class="section-intro reveal">
-        <p class="eyebrow">AI Tracker</p>
-        <h2>Track AI search. Prove it’s working.</h2>
-        <p class="section-copy">
-          This section now uses the actual demo surface and a few of the clearest product cues from AgencyAnalytics: unified data,
-          deeper campaign analysis, and reporting that makes complex work easier to understand.
-        </p>
+        <p class="eyebrow">Process</p>
+        <h2>How I usually lead product work when the problem is noisy and the right bet is not obvious yet.</h2>
       </div>
-
-      <div class="tracker-layout">
-        <article class="tracker-stage reveal" style="--delay:60ms">
-          <div class="tracker-window tracker-window-video">
-            <div class="tracker-frame-copy">
-              <p class="tracker-kicker">AgencyAnalytics product demo</p>
-              <h3>Show the product doing the work instead of simulating it.</h3>
-            </div>
-
-            <div class="showcase-video-shell">
-              <iframe
-                class="showcase-video-frame"
-                src="https://fast.wistia.net/embed/iframe/jxiaxo8qat?seo=false&videoFoam=true"
-                title="AgencyAnalytics Advanced Filtering demo"
-                allow="autoplay; fullscreen"
-                loading="lazy"
-              ></iframe>
-            </div>
-
-            <div class="tracker-proof-strip">
-              <div class="tracker-proof-card">
-                <span class="strip-label">Product value</span>
-                <strong>Deeper campaign analysis</strong>
-              </div>
-              <div class="tracker-proof-card">
-                <span class="strip-label">System layer</span>
-                <div class="platform-row">
-                  ${renderPlatformBadges(["Unified client data", "Cross-channel reporting"])}
-                </div>
-              </div>
-              <div class="tracker-proof-card">
-                <span class="strip-label">Why it lands</span>
-                <strong>Analyze results across clients without more manual work</strong>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <aside class="tracker-notes reveal" style="--delay:120ms">
-          <div class="note-card">
-            <p class="eyebrow">What Shipped</p>
-            <h3>Advanced analytics built for agencies with more complex demands.</h3>
-            <p>
-              The real value was not just shipping filters. It was making enterprise-style analysis feel usable inside an agency reporting workflow
-              that spans channels, clients, and stakeholder expectations.
-            </p>
-          </div>
-          <div class="note-card alt">
-            <p class="eyebrow">Why It Matters</p>
-            <h3>Trust comes from clearer reporting, not more feature noise.</h3>
-            <p>
-              That same product shape carried into the AI reporting assistant work: partner tightly with design and engineering, cut manual report creation,
-              and make the output feel reliable enough to adopt.
-            </p>
-          </div>
-        </aside>
+      <div class="process-grid">
+        ${renderProcess(processSteps)}
       </div>
     </section>
 
-    <section class="warehouse-section">
-      <div class="warehouse-panel reveal">
-        <p class="eyebrow">Advanced Analytics</p>
-        <h2>Built for enterprise agencies with more complex reporting demands.</h2>
-        <p>
-          This was product infrastructure with a clear customer: agencies that needed more flexible analysis, cleaner segmentation,
-          and reporting systems that could handle complexity without turning into internal-only tooling.
-        </p>
-      </div>
-      <div class="warehouse-panel alt reveal" style="--delay:90ms">
-        <p class="eyebrow">AI Reporting Assistant</p>
-        <h2>Partnered with design and engineering to reduce manual report creation.</h2>
-        <p>
-          The outcome was practical rather than flashy: less manual report work for teams, clearer outputs for customers,
-          and 27% adoption early enough to show the workflow had real pull.
-        </p>
-      </div>
-    </section>
-
-    <section class="approach-section" id="approach">
-      <div class="section-intro reveal">
-        <p class="eyebrow">Approach</p>
-        <h2>How I tend to lead product work.</h2>
-      </div>
-      <div class="theme-grid">
-        ${renderThemes(themes)}
-      </div>
-    </section>
+    <footer class="site-footer reveal">
+      <p class="footer-title">Jay Patel</p>
+      <p class="footer-copy">Senior Product Manager focused on analytics, AI, reporting systems, and platform product strategy.</p>
+      <a class="inline-link" href="https://jaypatelpm.vercel.app/" target="_blank" rel="noreferrer">jaypatelpm.vercel.app</a>
+    </footer>
   </main>
 `;
 
@@ -453,7 +421,92 @@ const revealObserver = new IntersectionObserver(
       }
     });
   },
-  { threshold: 0.16 },
+  { threshold: 0.14 },
 );
 
 document.querySelectorAll(".reveal").forEach((node) => revealObserver.observe(node));
+
+const root = document.documentElement;
+const drifters = [...document.querySelectorAll(".drift")];
+const motionScene = document.querySelector("[data-motion-scene]");
+
+function updateScrollProgress() {
+  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = scrollable > 0 ? window.scrollY / scrollable : 0;
+  root.style.setProperty("--scroll-progress", progress.toFixed(4));
+}
+
+let currentSceneProgress = 0;
+let targetSceneProgress = 0;
+
+let pointerX = 0;
+let pointerY = 0;
+let rafId = null;
+
+function updateSceneTarget() {
+  if (!motionScene) return;
+  const rect = motionScene.getBoundingClientRect();
+  const start = window.innerHeight * 0.15;
+  const end = window.innerHeight * 0.92;
+  const raw = (end - rect.top) / (end - start);
+  targetSceneProgress = Math.max(0, Math.min(1, raw));
+}
+
+function paintMotion() {
+  rafId = null;
+
+  currentSceneProgress += (targetSceneProgress - currentSceneProgress) * 0.11;
+  root.style.setProperty("--scene-progress", currentSceneProgress.toFixed(4));
+
+  drifters.forEach((node) => {
+    const depth = Number(node.dataset.depth || 0);
+    const moveX = pointerX * (depth / 100);
+    const moveY = pointerY * (depth / 120);
+    node.style.transform = `translate3d(${moveX}px, ${moveY}px, 0)`;
+  });
+
+  const sceneSettled = Math.abs(targetSceneProgress - currentSceneProgress) < 0.0015;
+  if (!sceneSettled) {
+    queueMotionPaint();
+  }
+}
+
+function queueMotionPaint() {
+  if (!rafId) {
+    rafId = window.requestAnimationFrame(paintMotion);
+  }
+}
+
+window.addEventListener(
+  "scroll",
+  () => {
+    updateScrollProgress();
+    updateSceneTarget();
+    queueMotionPaint();
+  },
+  { passive: true },
+);
+window.addEventListener(
+  "resize",
+  () => {
+    updateScrollProgress();
+    updateSceneTarget();
+    queueMotionPaint();
+  },
+  { passive: true },
+);
+window.addEventListener(
+  "mousemove",
+  (event) => {
+    pointerX = (event.clientX / window.innerWidth - 0.5) * 2;
+    pointerY = (event.clientY / window.innerHeight - 0.5) * 2;
+    root.style.setProperty("--pointer-x", pointerX.toFixed(4));
+    root.style.setProperty("--pointer-y", pointerY.toFixed(4));
+    queueMotionPaint();
+  },
+  { passive: true },
+);
+
+updateScrollProgress();
+updateSceneTarget();
+queueMotionPaint();
